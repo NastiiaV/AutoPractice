@@ -41,10 +41,10 @@ namespace AutoTest
 
             Header header = new Header(driver);
             SignInPage signInPage = header.ClickOnSignIn();
-            bool isEmailOk = signInPage.EnterData(email).IsDataOk(password);
+            bool isDataOk = signInPage.EnterData(email).IsDataOk(password);
 
-            Assert.That(isEmailOk,
-                Is.EqualTo(isPositive), $"Email was validated {(isEmailOk ? "successfully" : "unseccessfully")} " +
+            Assert.That(isDataOk,
+                Is.EqualTo(isPositive), $"Email was validated {(isDataOk ? "successfully" : "unseccessfully")} " +
                 "but we expected opposite");
 
         }
