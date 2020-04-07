@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using OpenQA.Selenium;
+
+namespace AutoTest.PageObject
+{
+    public class Header : PageObjectBase
+    {
+        private static readonly By loginButton = By.ClassName("login");
+        
+
+        public Header(IWebDriver driver) : base(driver)
+        { }
+
+        public SignInPage ClickOnSignIn()
+        {
+            Driver.FindElement(loginButton).Click();
+            return new SignInPage(Driver);
+        }
+
+    }
+}
