@@ -1,13 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutoTest.PageObject;
 
 namespace AutoTest
@@ -16,13 +10,9 @@ namespace AutoTest
     public class BaseTest
     {
         private readonly IWebDriver driver;
-        //private static readonly string url = "http://automationpractice.com/index.php";
-        //private static readonly TimeSpan implicitWait = TimeSpan.FromSeconds(3);
-        //private WebDriverWait wait;
 
         public BaseTest()
         {
-            //driver = new ChromeDriver(Directory.GetCurrentDirectory());
             driver = new ChromeDriver(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location));
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = PageObjectBase.implicitWait;
@@ -34,10 +24,9 @@ namespace AutoTest
         public void OneTimeTearDown() => driver.Quit();
 
         //[TestCase(true, "dress")]
-        //[TestCase(false, "asd")]
+        [TestCase(false, "asd")]
         public void Search(bool isPositive, string someSearch)
         {
-            //Header header = new Header(driver);
             SearchPage searchPage = new SearchPage(driver);
             bool isSearchExist = searchPage.EnterData(someSearch).isSearchOk();
             Assert.That(isSearchExist, Is.EqualTo(isPositive), $"Search is {(isSearchExist ? "existed" : "not existed")} " +
