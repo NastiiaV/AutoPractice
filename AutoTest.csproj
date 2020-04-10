@@ -57,12 +57,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseTest.cs" />
     <Compile Include="PageObject\Header.cs" />
     <Compile Include="PageObject\PageObjectBase.cs" />
     <Compile Include="PageObject\SearchPage.cs" />
     <Compile Include="PageObject\SignInPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\BaseTest.cs" />
+    <Compile Include="Tests\SearchCheck.cs" />
+    <Compile Include="Tests\SignInCheck.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
